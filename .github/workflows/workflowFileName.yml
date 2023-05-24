@@ -24,15 +24,6 @@ jobs:
           template: ./factory/kansai-adf-ueda-dev_ARMTemplateForFactory.json
           parameters: ./factory/kansai-adf-ueda-dev_ARMTemplateParametersForFactory.json
 
-        # Deploy linked template
-      - name: Run linked deploy
-        uses: azure/arm-deploy@v1
-        with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: ${{ secrets.AZURE_RG }}
-          template: ./linkedTemplates/ArmTemplate_master.json
-          parameters: ./linkedTemplates/ArmTemplateParameters_master.json
-
         # Deploy ARM template
       - name: Run ARM deploy
         uses: azure/arm-deploy@v1
