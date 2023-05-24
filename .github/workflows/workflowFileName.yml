@@ -1,0 +1,36 @@
+name: ADF
+
+on:
+  workflow_dispatch:
+
+jobs:
+ deployment:
+    runs-on: ubuntu-latest
+    steps:
+        # Checkout code
+      - uses: actions/checkout@main
+
+        # Log into Azure
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+        # Deploy ARM template
+      - name: Run ARM deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          template: ./app1/ARMTemplateForFactory.json
+          parameters: ./app1/ARMTemplateParametersForFactory.json
+
+        # Deploy Global Parameters
+      - name: Run GP deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          parameters: ./app1/globalParameters/kansai-adf-ueda_GlobalParameters.json
+
+        # output containerName variable from template
+      - run: echo ${{ steps.deploy.outputs.containerName }}
