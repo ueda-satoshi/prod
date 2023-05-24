@@ -1,0 +1,48 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "type": "string",
+            "metadata": "データ ファクトリ名",
+            "defaultValue": "kansai-adf-ueda-dev"
+        },
+        "dataFactory_properties_globalParameters_date_value": {
+            "type": "string",
+            "defaultValue": "20230508"
+        },
+        "dataFactory_location": {
+            "type": "string",
+            "defaultValue": "japanwest"
+        },
+        "dataFactory_identity_type": {
+            "type": "string",
+            "defaultValue": "SystemAssigned"
+        }
+    },
+    "variables": {
+        "factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+    },
+    "resources": [
+        {
+            "name": "[parameters('factoryName')]",
+            "type": "Microsoft.DataFactory/factories",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "globalParameters": {
+                    "date": {
+                        "type": "string",
+                        "value": "[parameters('dataFactory_properties_globalParameters_date_value')]"
+                    }
+                }
+            },
+            "dependsOn": [],
+            "location": "[parameters('dataFactory_location')]",
+            "identity": {
+                "type": "[parameters('dataFactory_identity_type')]",
+                "principalId": "e43ea897-7d01-454b-bcac-acb7ba8e14b4",
+                "tenantId": "46d4129d-bec6-42a5-a73a-976e07cec68e"
+            }
+        }
+    ]
+}
