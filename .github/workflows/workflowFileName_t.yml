@@ -1,0 +1,28 @@
+name: ADF_TEST
+
+on:
+  workflow_dispatch:
+
+jobs:
+ deployment:
+    runs-on: ubuntu-latest
+    steps:
+        # Checkout code
+      - uses: actions/checkout@main
+
+        # Login to Azure
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+        # Deploy ARM template
+      - name: Run ARM deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          template: ./ARMTemplateForFactory_test.json
+          parameters: ./ARMTemplateParametersForFactory_test.json
+
+        # output containerName variable from template
+      - run: echo ${{ steps.deploy.outputs.containerName }}
