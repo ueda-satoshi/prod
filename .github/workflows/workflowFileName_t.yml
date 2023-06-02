@@ -17,7 +17,7 @@ jobs:
 
         # create SAS Token
       - name: Azure CLI script
-        uses: azure/CLI@v2
+        uses: azure/CLI@v1
         with:
           storageconnectionstring: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
           azcliversion: 2.49.0
