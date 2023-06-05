@@ -9,10 +9,10 @@
 			"value": "DefaultEndpointsProtocol=https;AccountName=kansaiblobuedaartifact;AccountKey=n9r3OUwvTqilB7KaREQK7bhs4dWode5hUQgB1GKf9/pcfLpm0ZSU4VDKOhccVm8MgIFxEbJM+VaS+AStL91Fcg==;EndpointSuffix=core.windows.net"
 		},
 		"containerUri": {
-			"value": "https://kansaiblobuedaartifact.blob.core.windows.net/artifact"
+			"value": "https://raw.githubusercontent.com/ueda-satoshi/prod/d798ba2c18d3b2c971c063ccd5e671b3662fe3ae/linkedTemplates"
 		},
 		"containerSasToken": {
-			"value": "?sp=rl&st=2023-06-02T04:38:43Z&se=2023-06-02T12:38:43Z&spr=https&sv=2022-11-02&sr=c&sig=SfA3dsWMH1VQpbgla%2BRJcTly8681sY4raGzGhzCjJaQ%3D"
+			"value": ""
 		}
 	}
 }
