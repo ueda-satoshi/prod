@@ -9,14 +9,6 @@
         "location_name":{
             "defaultValue": "xxxxxxx",
             "type": "String"
-        },
-        "tags_name":{
-            "defaultValue": "xxxxxxx",
-            "type": "String"
-        },
-        "tags_value":{
-            "defaultValue": "xxxxxxx",
-            "type": "String"
         }
     },
      "variables": {},
@@ -27,7 +19,7 @@
             "name": "[parameters('storageAccounts_name')]",
             "location": "[parameters('location_name')]",
             "tags": {
-                "[parameters('tags_name')] : [parameters('tags_value')]"
+                "system-code": "S1054"
             },
             "sku": {
                 "name": "Standard_LRS",
