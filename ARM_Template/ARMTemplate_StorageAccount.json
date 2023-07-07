@@ -2,18 +2,18 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "storageAccounts_name": {
-            "defaultValue": "xxxxxxx",
+        "storageAccounts_stmtpcp001_name": {
+            "defaultValue": "stmtpcp001",
             "type": "String"
         }
     },
-     "variables": {},
+    "variables": {},
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2022-09-01",
-            "name": "[parameters('storageAccounts_name')]",
-            "location": "japanwest",
+            "name": "[parameters('storageAccounts_stmtpcp001_name')]",
+            "location": "japaneast",
             "tags": {
                 "system-code": "S1054"
             },
@@ -69,9 +69,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/blobServices",
             "apiVersion": "2022-09-01",
-            "name": "[concat(parameters('storageAccounts_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_stmtpcp001_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_stmtpcp001_name'))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -95,9 +95,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/fileServices",
             "apiVersion": "2022-09-01",
-            "name": "[concat(parameters('storageAccounts_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_stmtpcp001_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_stmtpcp001_name'))]"
             ],
             "sku": {
                 "name": "Standard_LRS",
@@ -119,9 +119,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/queueServices",
             "apiVersion": "2022-09-01",
-            "name": "[concat(parameters('storageAccounts_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_stmtpcp001_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_stmtpcp001_name'))]"
             ],
             "properties": {
                 "cors": {
@@ -132,9 +132,9 @@
         {
             "type": "Microsoft.Storage/storageAccounts/tableServices",
             "apiVersion": "2022-09-01",
-            "name": "[concat(parameters('storageAccounts_name'), '/default')]",
+            "name": "[concat(parameters('storageAccounts_stmtpcp001_name'), '/default')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_stmtpcp001_name'))]"
             ],
             "properties": {
                 "cors": {
@@ -145,10 +145,10 @@
         {
             "type": "Microsoft.Storage/storageAccounts/fileServices/shares",
             "apiVersion": "2022-09-01",
-            "name": "[concat(parameters('storageAccounts_name'), '/default/shared01')]",
+            "name": "[concat(parameters('storageAccounts_stmtpcp001_name'), '/default/shared01')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/fileServices', parameters('storageAccounts_name'), 'default')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_name'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts/fileServices', parameters('storageAccounts_stmtpcp001_name'), 'default')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_stmtpcp001_name'))]"
             ],
             "properties": {
                 "accessTier": "Hot",
