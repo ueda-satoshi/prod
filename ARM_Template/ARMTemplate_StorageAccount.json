@@ -13,7 +13,7 @@
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2022-09-01",
             "name": "[parameters('storageAccounts_stmtpcp001_name')]",
-            "location": "japaneast",
+            "location": "japanwest",
             "tags": {
                 "system-code": "S1054"
             },
