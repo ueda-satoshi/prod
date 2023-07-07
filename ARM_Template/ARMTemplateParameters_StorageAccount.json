@@ -9,8 +9,10 @@
             "value": "japanwest"
         },
         "tags_name": {
+            "value": "system-code"
+        },
+        "tags_value": {
             "value": "S1054"
         }
-
     }
 }

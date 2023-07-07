@@ -13,8 +13,11 @@
         "tags_name":{
             "defaultValue": "xxxxxxx",
             "type": "String"
+        },
+        "tags_value":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
         }
-
     },
      "variables": {},
     "resources": [
@@ -23,7 +26,9 @@
             "apiVersion": "2022-09-01",
             "name": "[parameters('storageAccounts_name')]",
             "location": "[parameters('location_name')]",
-            "tags": "[parameters('tags_name')]",
+            "tags": {
+                "[parameters('tags_name')] : [parameters('tags_value')]"
+            },
             "sku": {
                 "name": "Standard_LRS",
                 "tier": "Standard"
