@@ -5,10 +5,6 @@
         "storageAccounts_name": {
             "defaultValue": "xxxxxxx",
             "type": "String"
-        },
-        "location_name":{
-            "defaultValue": "xxxxxxx",
-            "type": "String"
         }
     },
      "variables": {},
@@ -17,7 +13,7 @@
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2022-09-01",
             "name": "[parameters('storageAccounts_name')]",
-            "location": "[parameters('location_name')]",
+            "location": "japaneast",
             "tags": {
                 "system-code": "S1054"
             },
