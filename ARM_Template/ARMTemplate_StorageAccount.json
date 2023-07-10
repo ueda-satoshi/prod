@@ -117,7 +117,7 @@
         {
             "type": "Microsoft.Storage/storageAccounts/privateEndpointConnections",
             "apiVersion": "2022-09-01",
-            "name": "[concat(parameters('storageAccounts_name'), '/', parameters('storageAccounts_name')]",
+            "name": "[concat(parameters('storageAccounts_name'), '/', parameters('storageAccounts_name'))]",
             "dependsOn": [
                 "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_name'))]"
             ],
