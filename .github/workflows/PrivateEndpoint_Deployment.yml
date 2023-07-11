@@ -1,0 +1,28 @@
+name: PrivateEndpoint
+
+on:
+  workflow_dispatch:
+
+jobs:
+ deployment:
+    runs-on: ubuntu-latest
+    steps:
+        # Checkout code
+      - uses: actions/checkout@main
+
+        # Login to Azure
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+        # Deploy StorageAccount template
+      - name: Run PrivateEndpoint deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          template: ./ARM_Template/ARMTemplate_PrivateEndpoint.json
+          parameters: ./ARM_Template/ARMTemplateParameters_PrivateEndpoint.json
+
+        # output containerName variable from template
+      - run: echo ${{ steps.deploy.outputs.containerName }}
