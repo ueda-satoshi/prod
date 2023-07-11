@@ -37,7 +37,7 @@
                 "privateLinkServiceConnections": [
                     {
                         "name": "[parameters('privateEndpoints_pe_name')]",
-                        "id": "[concat(resourceId('Microsoft.Network/privateEndpoints', parameters('privateEndpoints_pe_name')), concat('/privateLinkServiceConnections/', parameters('privateEndpoints_pe_stmtpcp001_name')))]",
+                        "id": "[concat(resourceId('Microsoft.Network/privateEndpoints', parameters('privateEndpoints_pe_name')), concat('/privateLinkServiceConnections/', parameters('privateEndpoints_pe_name')))]",
                         "properties": {
                             "privateLinkServiceId": "[parameters('storageAccounts_externalid')]",
                             "groupIds": [
