@@ -1,0 +1,28 @@
+name: StorageAccount and PrivateEndpoint
+
+on:
+  workflow_dispatch:
+
+jobs:
+ deployment:
+    runs-on: ubuntu-latest
+    steps:
+        # Checkout code
+      - uses: actions/checkout@main
+
+        # Login to Azure
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+        # Deploy ARM Template
+      - name: Run StorageAccount and PrivateEndpoint deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ secrets.AZURE_RG }}
+          template: ./ARM_Template/ARMTemplate.json
+          parameters: ./ARM_Template/ARMTemplateParameters.json
+
+        # output containerName variable from template
+      - run: echo ${{ steps.deploy.outputs.containerName }}
