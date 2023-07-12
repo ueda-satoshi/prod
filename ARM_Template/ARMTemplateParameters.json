@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_name": {
+            "value": "kansaiblobueda2"
+        },
+        "location_name": {
+            "value": "japanwest"
+        },
+        "privateEndpoints_pe_name": {
+            "value": "kansai-pe-ueda"
+        },
+        "subscription_id": {
+            "value": "24dbb845-ca7d-4063-a0d0-706f98b0707a"
+        },
+        "resourcegroup_name": {
+            "value": "kansai-rg-ueda"
+        },
+        "virtualNetworks_name": {
+            "value": "kansai-vnet-ueda"
+        },
+        "privateDnsZones_name": {
+            "value": "privatelink.file.core.windows.net"
+        },
+        "subnets_name": {
+            "value": "default"
+        }
+    }
+}
