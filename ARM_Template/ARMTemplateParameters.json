@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageAccounts_name": {
-            "value": "kansaiblobueda3"
+            "value": "kansaiblobueda4"
         },
         "location_name": {
             "value": "japanwest"
