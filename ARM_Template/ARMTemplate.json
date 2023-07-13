@@ -216,7 +216,7 @@
         {
             "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
             "apiVersion": "2022-11-01",
-            "name": "[concat(parameters('privateEndpoints_pe_name')), parameters('subnets_name')]",
+            "name": "[concat(parameters('privateEndpoints_pe_name'), parameters('subnets_name'))]",
             "dependsOn": [
                 "[resourceId('Microsoft.Network/privateEndpoints', parameters('privateEndpoints_pe_name'))]"
             ],
