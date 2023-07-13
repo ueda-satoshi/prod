@@ -225,7 +225,7 @@
                     {
                         "name": "privatelink-file-core-windows-net",
                         "properties": {
-                            "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id')), concat('/resourceGroups/', parameters('resourcegroup_name')), concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name'))"
+                            "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id')), concat('/resourceGroups/', parameters('resourcegroup_name')), concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name'))]"
                         }
                     }
                 ]
