@@ -192,7 +192,7 @@
                         "name": "[parameters('privateEndpoints_pe_name')]",
                         "id": "[concat(resourceId('Microsoft.Network/privateEndpoints', parameters('privateEndpoints_pe_name')), concat('/privateLinkServiceConnections/', parameters('privateEndpoints_pe_name')))]",
                         "properties": {
-                            "privateLinkServiceId": "[concat('/subscriptions/', parameters('subscription_id')), concat('/resourceGroups/', parameters('resourcegroup_name')), concat('/providers/Microsoft.Storage/storageAccounts/', parameters('storageAccounts_name'))",
+                            "privateLinkServiceId": "[concat('/subscriptions/', parameters('subscription_id')), concat('/resourceGroups/', parameters('resourcegroup_name')), concat('/providers/Microsoft.Storage/storageAccounts/', parameters('storageAccounts_name'))]",
                             "groupIds": [
                                 "file"
                             ],
@@ -223,7 +223,7 @@
             "properties": {
                 "privateDnsZoneConfigs": [
                     {
-                        "name": "privatelink-file-core-windows-net",
+                        "name": "[parameters('privateDnsZones_name')]",
                         "properties": {
                             "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id')), concat('/resourceGroups/', parameters('resourcegroup_name')), concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name'))]"
                         }
