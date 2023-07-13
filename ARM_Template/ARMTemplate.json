@@ -207,7 +207,7 @@
                 "manualPrivateLinkServiceConnections": [],
                 "customNetworkInterfaceName": "[concat(parameters('privateEndpoints_pe_name'), '-nic')]",
                 "subnet": {
-                    "id": "[concat('/subscriptions/', parameters('subscription_id')), concat('/resourceGroups/', parameters('resourcegroup_name')), concat('/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworks_name'), concat('/subnets/', parameters('subnets_name'))]"
+                    "id": "[concat('/subscriptions/', parameters('subscription_id')), concat('/resourceGroups/', parameters('resourcegroup_name')), concat('/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworks_name')), concat('/subnets/', parameters('subnets_name'))]"
                 },
                 "ipConfigurations": [],
                 "customDnsConfigs": []
