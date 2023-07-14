@@ -9,7 +9,7 @@
             "value": "japanwest"
         },
         "privateEndpoints_pe_name": {
-            "value": "kansai-pe-ueda99"
+            "value": "kansai-pe-ueda2"
         },
         "subscription_id": {
             "value": "24dbb845-ca7d-4063-a0d0-706f98b0707a"
@@ -18,7 +18,7 @@
             "value": "kansai-rg-ueda2"
         },
         "virtualNetworks_name": {
-            "value": "kansai-vnet-ueda99"
+            "value": "kansai-vnet-ueda2"
         },
         "privateDnsZones_name": {
             "value": "privatelink.file.core.windows.net"
