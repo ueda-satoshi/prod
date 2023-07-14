@@ -13,7 +13,7 @@ jobs:
         # Login to Azure
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.AZURE_CREDENTIALS2 }}
 
         # Deploy ARM Template
       - name: Run StorageAccount and PrivateEndpoint deploy
