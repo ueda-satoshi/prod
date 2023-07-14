@@ -1,0 +1,94 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccounts_name": {
+            "defaultValue": "xxxxxxx",
+            "type": "String"
+        },
+        "location_name":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
+        },
+        "privateEndpoints_pe_name":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
+        },
+        "subscription_id":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
+        },
+        "resourcegroup_name":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
+        },
+        "virtualNetworks_name":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
+        },
+        "privateDnsZones_name":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
+        },
+        "subnets_name":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
+        }
+    },
+     "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/privateEndpoints",
+            "apiVersion": "2022-11-01",
+            "name": "[parameters('privateEndpoints_pe_name')]",
+            "location": "[parameters('location_name')]",
+            "tags": {
+                "system-code": "S1054"
+            },
+            "properties": {
+                "privateLinkServiceConnections": [
+                    {
+                        "name": "[parameters('privateEndpoints_pe_name')]",
+                        "id": "[concat(resourceId('Microsoft.Network/privateEndpoints', parameters('privateEndpoints_pe_name')), concat('/privateLinkServiceConnections/', parameters('privateEndpoints_pe_name')))]",
+                        "properties": {
+                            "privateLinkServiceId": "[concat('/subscriptions/', parameters('subscription_id'), concat('/resourceGroups/', parameters('resourcegroup_name')), concat('/providers/Microsoft.Storage/storageAccounts/', parameters('storageAccounts_name')))]",
+                            "groupIds": [
+                                "file"
+                            ],
+                            "privateLinkServiceConnectionState": {
+                                "status": "Approved",
+                                "description": "Auto-Approved",
+                                "actionsRequired": "None"
+                            }
+                        }
+                    }
+                ],
+                "manualPrivateLinkServiceConnections": [],
+                "customNetworkInterfaceName": "[concat(parameters('privateEndpoints_pe_name'), '-nic')]",
+                "subnet": {
+                    "id": "[concat('/subscriptions/', parameters('subscription_id'), concat('/resourceGroups/', parameters('resourcegroup_name')), concat('/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworks_name')), concat('/subnets/', parameters('subnets_name')))]"
+                },
+                "ipConfigurations": [],
+                "customDnsConfigs": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
+            "apiVersion": "2023-02-01",
+            "name": "[concat(parameters('privateEndpoints_pe_name'), '/', parameters('subnets_name'))]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/privateEndpoints', parameters('privateEndpoints_pe_name'))]"
+            ],
+            "properties": {
+                "privateDnsZoneConfigs": [
+                    {
+                        "name": "[parameters('privateDnsZones_name')]",
+                        "properties": {
+                            "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id'), concat('/resourceGroups/', parameters('resourcegroup_name')), concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name')))]"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
