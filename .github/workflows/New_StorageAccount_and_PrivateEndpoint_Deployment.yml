@@ -23,7 +23,6 @@ jobs:
           template: ./ARM_Template/ARMTemplate_StorageAccount.json
           parameters: ./ARM_Template/ARMTemplateParameters.json
 
-jobs:
  PE_deploy:
     name: PE_Deploy
     needs: SA_Deploy
