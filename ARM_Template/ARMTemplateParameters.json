@@ -15,7 +15,7 @@
             "value": "24dbb845-ca7d-4063-a0d0-706f98b0707a"
         },
         "resourcegroup_name": {
-            "value": NULL
+            "value": "kansai-rg-ueda"
         },
         "virtualNetworks_name": {
             "value": "kansai-vnet-ueda2"
