@@ -3,18 +3,6 @@ name: TEST
 on:
   workflow_dispatch:
 
-  inputs:
-    choice:
-      type: choice
-      required: true
-      options:
-        - ""
-        - "PROD"
-        - "DEV"
-    name:
-      description: 'ResourceGroup_Name'
-      required: true
-
 jobs:
  SA_deploy:
     name: SA_Deploy
