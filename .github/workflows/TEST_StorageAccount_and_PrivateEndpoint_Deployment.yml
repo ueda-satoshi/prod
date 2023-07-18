@@ -1,0 +1,59 @@
+name: NEW StorageAccount and PrivateEndpoint
+
+on:
+  workflow_dispatch:
+
+  inputs:
+    choice:
+      type: choice
+      required: true
+      options:
+        - ""
+        - "PROD"
+        - "DEV"
+    name:
+      description: 'ResourceGroup_Name'
+      required: true
+
+
+jobs:
+ SA_deploy:
+    name: SA_Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+        # Checkout code
+      - uses: actions/checkout@main
+        # Login to Azure
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS2 }}
+        # Deploy StorageAccount Template
+      - name: Run StorageAccount deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ github.event.inputs.ResourceGroup_Name }}
+          template: ./ARM_Template/ARMTemplate_StorageAccount.json
+          parameters: ./ARM_Template/ARMTemplateParameters.json resourcegroup_name=${{ github.event.inputs.ResourceGroup_Name }}
+
+ PE_deploy:
+    name: PE_Deploy
+    needs: SA_Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+        # Checkout code
+      - uses: actions/checkout@main
+        # Login to Azure
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS2 }}
+        # Deploy PrivateEndpoint Template
+      - name: Run PrivateEndpoint deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ secrets.AZURE_RG2 }}
+          template: ./ARM_Template/ARMTemplate_PrivateEndpoint.json
+          parameters: ./ARM_Template/ARMTemplateParameters.json
