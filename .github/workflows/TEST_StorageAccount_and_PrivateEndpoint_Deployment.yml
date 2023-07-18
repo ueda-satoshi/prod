@@ -1,4 +1,4 @@
-name: TEST StorageAccount and PrivateEndpoint
+name: TEST
 
 on:
   workflow_dispatch:
