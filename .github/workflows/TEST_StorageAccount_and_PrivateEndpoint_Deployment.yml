@@ -1,4 +1,4 @@
-name: NEW StorageAccount and PrivateEndpoint
+name: TEST StorageAccount and PrivateEndpoint
 
 on:
   workflow_dispatch:
@@ -14,7 +14,6 @@ on:
     name:
       description: 'ResourceGroup_Name'
       required: true
-
 
 jobs:
  SA_deploy:
