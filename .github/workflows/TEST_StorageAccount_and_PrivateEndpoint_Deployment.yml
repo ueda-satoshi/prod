@@ -10,8 +10,8 @@ on:
           - ""
           - "PROD"
           - "DEV"
-      name:
-        description: 'RG'
+      rg_name:
+        description: 'ResourceGroup_name'
         required: true
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ github.event.inputs.ResourceGroup_Name }}
           template: ./ARM_Template/ARMTemplate_StorageAccount.json
-          parameters: ./ARM_Template/ARMTemplateParameters.json resourcegroup_name=${{ github.event.inputs.name }}
+          parameters: ./ARM_Template/ARMTemplateParameters.json resourcegroup_name=${{ github.event.inputs.rg_name }}
 
  PE_deploy:
     name: PE_Deploy
