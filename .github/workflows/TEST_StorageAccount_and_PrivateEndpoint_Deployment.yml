@@ -4,15 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       choice:
-      type: choice
-      required: true
-      options:
-        - ""
-        - "PROD"
-        - "DEV"
-    name:
-      description: 'RG'
-      required: true
+        type: choice
+        required: true
+        options:
+          - ""
+          - "PROD"
+          - "DEV"
+      name:
+        description: 'RG'
+        required: true
 
 jobs:
  SA_deploy:
