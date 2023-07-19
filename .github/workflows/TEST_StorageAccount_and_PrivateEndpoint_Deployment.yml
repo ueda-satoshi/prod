@@ -2,8 +2,8 @@ name: TEST
 
 on:
   workflow_dispatch:
-  inputs:
-    choice:
+    inputs:
+      choice:
       type: choice
       required: true
       options:
