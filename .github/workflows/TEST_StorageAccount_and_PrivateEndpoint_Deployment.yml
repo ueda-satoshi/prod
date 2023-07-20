@@ -31,7 +31,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: ${{ github.event.inputs.ResourceGroup_Name }}
+          resourceGroupName: ${{ github.event.inputs.RG }}
           template: ./ARM_Template/ARMTemplate_StorageAccount.json
           parameters: ./ARM_Template/ARMTemplateParameters.json resourcegroup_name=${{ github.event.inputs.rg_name }}
 
