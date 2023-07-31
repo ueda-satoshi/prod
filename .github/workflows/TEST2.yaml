@@ -29,6 +29,7 @@ jobs:
       - uses: azure/login@v1
         with:
           ueda: ${{ 'secrets.AZURE_CREDENTIALS' }}${{ github.event.inputs.rg_name }}
+          run: echo "$ueda"
           creds: ${{ ueda }}
         # Deploy StorageAccount Template
       - name: Run StorageAccount deploy
