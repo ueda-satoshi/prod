@@ -1,0 +1,15 @@
+name: TEST2
+
+on:
+  workflow_dispatch:
+    inputs:
+      choice:
+        type: choice
+        required: true
+        options:
+          - ""
+          - "PROD"
+          - "DEV"
+      rg_name:
+        description: 'ResourceGroup_name'
+        required: true
