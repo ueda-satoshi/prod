@@ -13,3 +13,25 @@ on:
       rg_name:
         description: 'ResourceGroup_name'
         required: true
+      cre_no:
+        description: 'credential_no'
+        required: true
+
+jobs:
+ TEST:
+    name: TEST
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+        # Checkout code
+      - uses: actions/checkout@main
+        # Login to Azure
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS${{ cre_no }} }}
+        # Deploy StorageAccount Template
+      - name: Run StorageAccount deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ github.event.inputs.rg_name }}
