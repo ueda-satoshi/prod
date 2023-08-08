@@ -13,7 +13,7 @@ jobs:
         # Login to Azure
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS4 }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
         # Deploy StorageAccount Template
       - name: Run StorageAccount deploy
         uses: azure/arm-deploy@v1
@@ -33,7 +33,7 @@ jobs:
         # Login to Azure
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS4 }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
         # Deploy PrivateEndpoint Template
       - name: Run PrivateEndpoint deploy
         uses: azure/arm-deploy@v1
