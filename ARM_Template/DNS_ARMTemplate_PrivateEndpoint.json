@@ -96,7 +96,14 @@
                     {
                         "name": "[parameters('privateDnsZones_name')]",
                         "properties": {
-                            "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id'), concat('/resourceGroups/', parameters('dns_resourcegroup_name')), concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name')))]",
+                            "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id'), concat('/resourceGroups/', parameters('dns_resourcegroup_name')), concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name')))]"
+                        }
+                    }
+                ],
+                "privateDnsZoneConfigs": [
+                    {
+                        "name": "[parameters('privateDnsZones_name')]",
+                        "properties": {
                             "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id'), concat('/resourceGroups/', parameters('dns2_resourcegroup_name')), concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name')))]"
                         }
                     }
