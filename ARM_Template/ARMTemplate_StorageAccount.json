@@ -33,6 +33,18 @@
         "subnets_name":{
             "defaultValue": "xxxxxxx",
             "type": "String"
+        },
+        "resourcegroup_name":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
+        },
+        "dns_resourcegroup_name":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
+        },
+        "dns2_resourcegroup_name":{
+            "defaultValue": "xxxxxxx",
+            "type": "String"
         }
     },
      "variables": {},
