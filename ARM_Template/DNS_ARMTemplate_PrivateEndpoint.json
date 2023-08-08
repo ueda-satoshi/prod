@@ -84,8 +84,8 @@
                     {
                         "name": "[parameters('privateDnsZones_name')]",
                         "properties": {
-                            "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id'), /resourceGroups/kansai-rg-ueda, concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name')))]",
-                            "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id'), /resourceGroups/kansai-rg-ueda2, concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name')))]"
+                            "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id'), '/resourceGroups/kansai-rg-ueda', concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name')))]",
+                            "privateDnsZoneId": "[concat('/subscriptions/', parameters('subscription_id'), '/resourceGroups/kansai-rg-ueda2', concat('/providers/Microsoft.Network/privateDnsZones/', parameters('privateDnsZones_name')))]"
                         }
                     }
                 ]
