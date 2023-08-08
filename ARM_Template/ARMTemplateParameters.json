@@ -22,6 +22,15 @@
         },
         "subnets_name": {
             "value": "default"
+        },
+        "resourcegroup_name": {
+            "value": "kansai-rg-ueda4"
+        },
+        "dns_resourcegroup_name": {
+            "value": "kansai-rg-ueda"
+        },
+        "dns2_resourcegroup_name": {
+            "value": "kansai-rg-ueda2"
         }
     }
 }
