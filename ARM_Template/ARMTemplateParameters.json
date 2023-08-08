@@ -3,19 +3,19 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageAccounts_name": {
-            "value": "kansaiblobueda3"
+            "value": "kansaiblobueda4"
         },
         "location_name": {
             "value": "japanwest"
         },
         "privateEndpoints_pe_name": {
-            "value": "kansai-pe-ueda2"
+            "value": "kansai-pe-ueda4"
         },
         "subscription_id": {
             "value": "24dbb845-ca7d-4063-a0d0-706f98b0707a"
         },
         "virtualNetworks_name": {
-            "value": "kansai-vnet-ueda2"
+            "value": "kansai-vnet-ueda4"
         },
         "privateDnsZones_name": {
             "value": "privatelink.file.core.windows.net"
