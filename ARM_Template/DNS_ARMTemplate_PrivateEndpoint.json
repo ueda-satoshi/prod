@@ -100,7 +100,15 @@
                         }
                     }
                 ]
-            },
+            }
+        },
+        {
+            "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
+            "apiVersion": "2023-02-01",
+            "name": "[concat(parameters('privateEndpoints_pe_name'), '/', parameters('subnets_name'))]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/privateEndpoints', parameters('privateEndpoints_pe_name'))]"
+            ],
             "properties": {
                 "privateDnsZoneConfigs": [
                     {
