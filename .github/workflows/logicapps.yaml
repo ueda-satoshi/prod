@@ -1,0 +1,15 @@
+ name: logicapps input
+ 
+ on:
+   workflow_dispatch:
+     inputs:
+       logicapps_input:
+         description: 'logicapps input'
+         required: true
+         default: 'xxxxx'
+ 
+ jobs:
+   logicapps_job:
+     runs-on: ubuntu-18.04
+     steps:
+       - run: echo "${{ github.event.inputs.logicapps_input }}"
