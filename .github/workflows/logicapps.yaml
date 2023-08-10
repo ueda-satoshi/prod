@@ -5,7 +5,7 @@
      inputs:
        logicapps_input:
          description: 'logicapps input'
-         required: true
+         required: false
          default: 'xxxxx'
  
  jobs:
