@@ -11,5 +11,6 @@
  jobs:
    logicapps_job:
      runs-on: ubuntu-18.04
+     timeout-minutes: 60
      steps:
        - run: echo "${{ github.event.inputs.logicapps_input }}"
