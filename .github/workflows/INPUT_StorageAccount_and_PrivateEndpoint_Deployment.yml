@@ -21,7 +21,7 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ secrets.AZURE_RG4 }}
           template: ./ARM_Template/ARMTemplate_StorageAccount.json
-          parameters: ./ARM_Template/ARMTemplateParameters.json
+          parameters: ./ARM_Template/INPUT_ARM_Template_Parameter.json
 
  PE_deploy:
     name: PE_Deploy
@@ -41,4 +41,4 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ secrets.AZURE_RG4 }}
           template: ./ARM_Template/DNS_ARMTemplate_PrivateEndpoint.json
-          parameters: ./ARM_Template/ARMTemplateParameters.json
+          parameters: ./ARM_Template/INPUT_ARM_Template_Parameter.json
